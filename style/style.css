@@ -1,0 +1,332 @@
+:root {
+  --bg: #fcfcfc; 
+  --card: #ffffff; 
+  --muted: #6b6b6b; 
+  --radius: 12px; 
+  --max-w: 1100px; 
+  --glass: rgba(
+    255,
+    255,
+    255,
+    0.6
+  ); 
+
+  --titulo: #bc3c89;
+  --sub-titulo: #b73cab;
+  --texto: #333;
+}
+
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+  background: var(--bg);
+  color: #222;
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.45;
+  font-size: 16px;
+}
+
+.container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 6px var(--sub-titulo);
+  z-index: 30;
+  padding: 1rem 2rem;
+  width: 100%;
+}
+header .container {
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+}
+.logo {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--texto);
+  letter-spacing: 0.6px;
+}
+
+header nav a {
+  font-size: 14px;
+  color: var(--texto);
+  margin-left: 1rem;
+  text-decoration: none;
+}
+
+header nav a.ativo {
+  border-bottom: 2px solid var(--sub-titulo);
+}
+
+header nav a:hover {
+  color: var(--sub-titulo);
+}
+
+main {
+  max-width: var(--max-w);
+  margin: 2.25rem auto;
+  padding: 1.5rem;
+}
+main h1 {
+  font-size: 2rem;
+  margin: 3rem 0 1rem 0;
+  color: var(--titulo);
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  text-align: left;
+}
+
+.selecione-datas,
+.selecione-livros {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 6px 20px rgba(34, 80, 103, 0.04);
+  border: 1px solid rgba(34, 80, 103, 0.04);
+}
+.selecione-datas h2,
+.selecione-livros h2 {
+  margin: 0 0 0.75rem 0;
+  font-size: 1rem;
+  color: var(--sub-titulo);
+  letter-spacing: 1px;
+}
+
+.datas {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.datas input[type="date"] {
+  appearance: none;
+  -webkit-appearance: none;
+  background: linear-gradient(180deg, #fff, #fafafa);
+  border: 1px solid rgba(34, 80, 103, 0.08);
+  padding: 0.6rem 0.75rem;
+  border-radius: 10px;
+  min-width: 210px;
+  font-size: 0.95rem;
+  color: var(--texto);
+  box-shadow: 0 2px 8px rgba(34, 80, 103, 0.03) inset;
+}
+.datas input[type="date"]:focus {
+  outline: none; 
+  box-shadow: 0 0 6px var(--sub-titulo);
+}
+
+.selecione-livros h3 {
+  margin: 1rem 0 0.5rem 0;
+  font-size: 1.05rem;
+  color: var(--texto);
+  font-weight: 600;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 0.75rem;
+}
+
+.checkbox-group label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.6rem;
+  border-radius: 10px;
+  background: linear-gradient(
+    180deg,
+    rgba(34, 80, 103, 0.02),
+    rgba(64, 56, 168, 0.01)
+  );
+  border: 1px solid rgba(34, 80, 103, 0.04);
+  font-size: 0.92rem;
+  color: var(--texto);
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.14s ease;
+}
+
+.checkbox-group input[type="checkbox"] {
+  width: 1rem;
+  height: 1rem;
+  accent-color: var(--sub-titulo);
+}
+
+.checkbox-group label:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 6px var(--sub-titulo);
+}
+
+.checkbox-group input[type="checkbox"]:focus-visible {
+  outline: 3px solid rgba(34, 80, 103, 0.15);
+  border-radius: 6px;
+}
+
+.botao {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0 2rem 0;
+  gap: 30px;
+}
+.botao button {
+  color: var(--texto);
+  background-color: var(--card);
+  box-shadow: 0 6px 20px rgba(34, 80, 103, 0.04);
+  border: none;
+  border: 1px solid var(--sub-titulo);
+  padding: 0.85rem 1.15rem;
+  border-radius: 14px;
+  font-family: "Cormorant Garamond", Georgia;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.botao button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 6px var(--sub-titulo);
+}
+.botao button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 0 6px var(--sub-titulo);
+}
+
+#plano {
+  padding: 1rem;
+  min-height: 80px;
+  border-radius: 10px;
+  border: 1px dashed rgba(34, 80, 103, 0.06);
+}
+
+footer {
+  margin-top: 2.5rem;
+  background-color: var(--titulo);
+  padding: 0.7rem;
+  text-align: center;
+  color: var(--bg);
+  font-size: 1rem;
+}
+
+@media (max-width: 900px) {
+  header .container {
+    padding: 0.75rem 1rem;
+  }
+  main {
+    padding: 1rem;
+    margin: 1.25rem auto;
+  }
+  main h1 {
+    font-size: 1.6rem;
+  }
+  .datas input[type="date"] {
+    min-width: 100%;
+  }
+  .checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+  nav {
+    gap: 0.5rem;
+  }
+  nav a {
+    padding: 0.45rem 0.6rem;
+    font-size: 0.82rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .checkbox-group {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .logo {
+    font-size: 1rem;
+  }
+  .botao button {
+    width: 100%;
+    padding: 0.9rem;
+    border-radius: 12px;
+  }
+}
+
+@media print {
+  header,
+  footer,
+  .botao {
+    display: none;
+  }
+  body {
+    background: white;
+    color: black;
+  }
+}
+
+#tabela-container {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 6px 20px rgba(34, 80, 103, 0.04);
+  border: 1px solid rgba(34, 80, 103, 0.04);
+  overflow-x: auto;
+}
+
+#tabela-container h2 {
+  margin: 0 0 0.75rem 0;
+  font-size: 1rem;
+  color: var(--sub-titulo);
+  letter-spacing: 1px;
+}
+
+#tabela-container table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  color: var(--texto);
+}
+#tabela-container td {
+  font-size: 1.05rem;
+  color: var(--texto);
+  font-weight: 600;
+}
+
+#tabela-container th,
+#tabela-container td {
+  padding: 0.6rem 0.75rem;
+  text-align: center;
+  border-bottom: 1px solid rgba(34, 80, 103, 0.08);
+}
+
+#tabela-container th {
+  background-color: var(--bg);
+  color: var(--titulo);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+#tabela-container tr:nth-child(even) {
+  background-color: rgba(34, 80, 103, 0.03);
+}
+
+#tabela-container td:nth-child(3) {
+  text-align: center;
+}

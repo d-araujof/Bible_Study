@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bible Study - Home</title>
+    <link rel="stylesheet" href="/style/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="/img/livros.png">
+  </head>
+  <body>
+    <header>
+      <div class="logo">Bible Study</div>
+      <nav>
+        <a href="index.html" class="ativo">HOME</a>
+      </nav>
+    </header>
+
+    <main>
+      <h1>Montando seu plano de estudos bíblicos</h1>
+
+      <div class="selecione-datas">
+        <h2>SELECIONE SUAS DATAS</h2>
+        <div class="datas">
+          <input type="date" id="startDate" placeholder="Data de início" />
+          <input type="date" id="endDate" placeholder="Data de fim" />
+        </div>
+      </div>
+
+      <div class="selecione-livros">
+        <h2>SELECIONE OS LIVROS</h2>
+
+        <h3>Antigo Testamento</h3>
+        <div class="checkbox-group">
+          <label><input type="checkbox" />Gênesis</label>
+          <label><input type="checkbox" />Êxodo</label>
+          <label><input type="checkbox" />Levítico</label>
+          <label><input type="checkbox" />Números</label>
+          <label><input type="checkbox" />Deuteronômio</label>
+          <label><input type="checkbox" />Josué</label>
+          <label><input type="checkbox" />Juízes</label>
+          <label><input type="checkbox" />Rute</label>
+          <label><input type="checkbox" />I Samuel</label>
+          <label><input type="checkbox" />II Samuel</label>
+          <label><input type="checkbox" />I Reis</label>
+          <label><input type="checkbox" />II Reis</label>
+          <label><input type="checkbox" />I Crônicas</label>
+          <label><input type="checkbox" />II Crônicas</label>
+          <label><input type="checkbox" />Esdras</label>
+          <label><input type="checkbox" />Neemias</label>
+          <label><input type="checkbox" />Ester</label>
+          <label><input type="checkbox" />Jó</label>
+          <label><input type="checkbox" />Salmos</label>
+          <label><input type="checkbox" />Provérbios</label>
+          <label><input type="checkbox" />Eclesiastes</label>
+          <label><input type="checkbox" />Cânticos</label>
+          <label><input type="checkbox" />Isaías</label>
+          <label><input type="checkbox" />Jeremias</label>
+          <label><input type="checkbox" />Lamentações</label>
+          <label><input type="checkbox" />Ezequiel</label>
+          <label><input type="checkbox" />Daniel</label>
+          <label><input type="checkbox" />Oséias</label>
+          <label><input type="checkbox" />Joel</label>
+          <label><input type="checkbox" />Amós</label>
+          <label><input type="checkbox" />Obadias</label>
+          <label><input type="checkbox" />Jonas</label>
+          <label><input type="checkbox" />Miquéias</label>
+          <label><input type="checkbox" />Naum</label>
+          <label><input type="checkbox" />Habacuque</label>
+          <label><input type="checkbox" />Sofonias</label>
+          <label><input type="checkbox" />Ageu</label>
+          <label><input type="checkbox" />Zacarias</label>
+          <label><input type="checkbox" />Malaquias</label>
+        </div>
+
+        <h3>Novo Testamento</h3>
+        <div class="checkbox-group">
+          <label><input type="checkbox" />Mateus</label>
+          <label><input type="checkbox" />Marcos</label>
+          <label><input type="checkbox" />Lucas</label>
+          <label><input type="checkbox" />João</label>
+          <label><input type="checkbox" />Atos dos Apóstolos</label>
+          <label><input type="checkbox" />Romanos</label>
+          <label><input type="checkbox" />I Coríntios</label>
+          <label><input type="checkbox" />II Coríntios</label>
+          <label><input type="checkbox" />Gálatas</label>
+          <label><input type="checkbox" />Efésios</label>
+          <label><input type="checkbox" />Filipenses</label>
+          <label><input type="checkbox" />Colossenses</label>
+          <label><input type="checkbox" />I Tessalonicenses</label>
+          <label><input type="checkbox" />II Tessalonicenses</label>
+          <label><input type="checkbox" />I Timóteo</label>
+          <label><input type="checkbox" />II Timóteo</label>
+          <label><input type="checkbox" />Tito</label>
+          <label><input type="checkbox" />Filemon</label>
+          <label><input type="checkbox" />Hebreus</label>
+          <label><input type="checkbox" />Tiago</label>
+          <label><input type="checkbox" />I Pedro</label>
+          <label><input type="checkbox" />II Pedro</label>
+          <label><input type="checkbox" />I João</label>
+          <label><input type="checkbox" />II João</label>
+          <label><input type="checkbox" />III João</label>
+          <label><input type="checkbox" />Judas</label>
+          <label><input type="checkbox" />Apocalipse</label>
+        </div>
+      </div>
+
+      <div class="botao">
+        <button id="gerarPlano">GERAR PLANO</button>
+        <button id="exportar" disabled>EXPORTAR PDF</button>
+      </div>
+
+      <div id="tabela-container"></div>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Bible Study</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+
+    <script src="/js/app.js"></script>
+    <script src="/js/button.js"></script>
+  </body>
+</html>

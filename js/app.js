@@ -1,103 +1,158 @@
-const livrosCapitulos = {
-  "Gênesis": 50, "Êxodo": 40, "Levítico": 27, "Números": 36, "Deuteronômio": 34,
-  "Josué": 24, "Juízes": 21, "Rute": 4, "I Samuel": 31, "II Samuel": 24,
-  "I Reis": 22, "II Reis": 25, "I Crônicas": 29, "II Crônicas": 36, "Esdras": 10,
-  "Neemias": 13, "Ester": 10, "Jó": 42, "Salmos": 150, "Provérbios": 31,
-  "Eclesiastes": 12, "Cânticos": 8, "Isaías": 66, "Jeremias": 52, "Lamentações": 5,
-  "Ezequiel": 48, "Daniel": 12, "Oséias": 14, "Joel": 3, "Amós": 9, "Obadias": 1,
-  "Jonas": 4, "Miquéias": 7, "Naum": 3, "Habacuque": 3, "Sofonias": 3, "Ageu": 2,
-  "Zacarias": 14, "Malaquias": 4, "Mateus": 28, "Marcos": 16, "Lucas": 24, "João": 21,
-  "Atos dos Apóstolos": 28, "Romanos": 16, "I Coríntios": 16, "II Coríntios": 13,
-  "Gálatas": 6, "Efésios": 6, "Filipenses": 4, "Colossenses": 4, "I Tessalonicenses": 5,
-  "II Tessalonicenses": 3, "I Timóteo": 6, "II Timóteo": 4, "Tito": 3, "Filemon": 1,
-  "Hebreus": 13, "Tiago": 5, "I Pedro": 5, "II Pedro": 3, "I João": 5, "II João": 1,
-  "III João": 1, "Judas": 1, "Apocalipse": 22
+const livrosCapitulosVersiculos = {
+  // Antigo Testamento
+  "Gênesis": [31, 25, 24, 26, 32, 22, 24, 22, 29, 32, 32, 20, 18, 18, 20, 16, 20, 18, 25, 18, 25, 34, 30, 22, 36, 31, 33, 24, 36, 35, 46, 22],
+  "Êxodo": [22, 25, 22, 31, 23, 30, 25, 32, 35, 29, 10, 51, 22, 31, 27, 36, 16, 27, 25, 26, 36, 31, 33, 18, 40, 37, 21, 43, 46, 38, 18, 35, 23, 35, 35, 38, 29, 31, 43, 38],
+  "Levítico": [17, 16, 17, 35, 19, 30, 38, 36, 24, 20, 47, 8, 59, 57, 33, 34, 16, 30, 37, 27, 24, 33, 44, 23, 55, 46, 34],
+  "Números": [54, 34, 51, 49, 31, 27, 89, 26, 23, 36, 35, 16, 33, 45, 41, 50, 13, 32, 22, 29, 35, 41, 30, 25, 18, 65, 23, 31, 39, 17, 54, 42, 56, 29, 34, 13],
+  "Deuteronômio": [46, 37, 29, 49, 33, 25, 26, 20, 29, 22, 32, 32, 18, 29, 23, 22, 20, 22, 21, 20, 23, 30, 25, 22, 19, 19, 26, 68, 29, 20, 30, 52, 29, 12],
+  "Josué": [18, 24, 17, 24, 15, 27, 26, 35, 27, 43, 23, 24, 33, 15, 63, 10, 18, 28, 51, 9, 45, 34, 16, 33],
+  "Juízes": [36, 23, 31, 24, 31, 40, 25, 35, 57, 18, 40, 15, 25, 20, 20, 31, 13, 31, 30, 48, 25],
+  "Rute": [22, 23, 18, 22],
+  "I Samuel": [28, 36, 21, 22, 12, 21, 17, 22, 27, 27, 15, 25, 23, 52, 35, 23, 58, 30, 24, 42, 15, 23, 29, 22, 44, 25, 12, 25, 11, 31, 13],
+  "II Samuel": [27, 32, 39, 12, 25, 23, 29, 18, 13, 19, 27, 31, 39, 33, 37, 23, 29, 33, 43, 26, 22, 51, 39, 25],
+  "I Reis": [53, 46, 28, 34, 18, 38, 51, 66, 28, 29, 43, 33, 34, 31, 34, 34, 24, 46, 21, 43, 29, 54],
+  "II Reis": [18, 25, 27, 44, 27, 36, 16, 33, 20, 37, 20, 21, 25, 29, 38, 20, 41, 37, 37, 21, 26, 20, 37, 20, 30],
+  "I Crônicas": [54, 55, 24, 43, 26, 81, 40, 40, 44, 14, 47, 41, 14, 17, 29, 43, 27, 17, 19, 8, 30, 19, 32, 31, 31, 32, 34, 21, 30],
+  "II Crônicas": [17, 18, 17, 22, 14, 42, 22, 18, 31, 19, 23, 16, 23, 14, 19, 14, 19, 34, 11, 37, 20, 12, 21, 27, 28, 23, 9, 27, 36, 27, 21, 33, 25, 33, 27, 23],
+  "Esdras": [11, 70, 13, 24, 17, 22, 28, 36, 15, 44],
+  "Neemias": [11, 23, 32, 23, 19, 19, 73, 18, 38, 39, 36, 47, 31, 22, 23, 55, 19, 38, 40, 37, 36, 31, 24, 34],
+  "Ester": [22, 23, 15, 17, 14, 14, 10, 17, 32, 3],
+  "Jó": [22, 13, 26, 21, 27, 30, 21, 22, 35, 22, 20, 25, 28, 22, 35, 22, 16, 21, 29, 29, 34, 30, 17, 25, 6, 14, 23, 28, 25, 31, 40, 22, 33, 37, 16, 33, 24, 41, 30, 24, 34, 17],
+  "Salmos": [6, 12, 8, 9, 12, 10, 17, 9, 20, 18, 7, 8, 6, 7, 5, 11, 15, 50, 14, 9, 13, 31, 6, 10, 22, 12, 14, 9, 11, 12, 24, 11, 22, 22, 28, 12, 40, 22, 13, 17, 13, 11, 5, 26, 17, 11, 9, 14, 20, 23, 19, 9, 6, 7, 23, 13, 11, 11, 17, 12, 8, 12, 11, 10, 13, 20, 7, 35, 36, 5, 24, 20, 28, 23, 10, 12, 20, 72, 13, 19, 16, 8, 18, 12, 13, 17, 7, 18, 52, 17, 16, 15, 5, 23, 11, 13, 12, 9, 9, 5, 8, 29, 22, 35, 45, 48, 43, 13, 31, 7, 10, 10, 9, 8, 18, 19, 2, 29, 176, 7, 8, 9, 4, 8, 5, 6, 5, 6, 8, 8, 3, 18, 3, 3, 21, 26, 9, 8, 24, 13, 10, 7, 12, 15, 21, 10, 20, 14, 9, 6],
+  "Provérbios": [33, 22, 35, 27, 23, 35, 27, 36, 18, 32, 31, 28, 25, 35, 33, 33, 28, 24, 29, 30, 31, 29, 35, 34, 28, 28, 27, 28, 27, 33, 31],
+  "Eclesiastes": [18, 26, 22, 16, 20, 12, 29, 17, 18, 20, 10, 14],
+  "Cânticos": [17, 17, 11, 16, 16, 12, 14, 14],
+  "Isaías": [31, 22, 25, 6, 30, 13, 25, 22, 21, 34, 16, 6, 22, 32, 9, 14, 14, 7, 25, 6, 17, 25, 18, 23, 12, 21, 13, 29, 24, 33, 9, 20, 24, 17, 10, 22, 38, 22, 8, 31, 29, 25, 28, 28, 25, 13, 15, 22, 26, 11, 23, 15, 12, 17, 13, 12, 21, 14, 21, 22],
+  "Jeremias": [19, 37, 25, 31, 31, 30, 34, 22, 26, 25, 23, 17, 27, 22, 21, 21, 27, 23, 15, 18, 14, 30, 40, 10, 38, 24, 22, 17, 32, 24, 40, 44, 26, 22, 19, 32, 21, 28, 18, 16, 18, 22, 13, 30, 5, 28, 7, 47, 39, 46, 64, 34],
+  "Lamentações": [22, 22, 66, 22, 22],
+  "Ezequiel": [28, 10, 27, 17, 17, 14, 27, 18, 11, 22, 25, 28, 23, 23, 8, 63, 24, 32, 14, 49, 32, 31, 49, 27, 17, 21, 36, 26, 21, 26, 18, 32, 33, 31, 15, 38, 28, 23, 29, 49, 26, 20, 27, 31, 25, 24, 23, 35, 27, 36, 26, 22, 17, 19, 17, 14, 20, 19, 19, 32, 31, 31, 30, 24, 34, 23, 36, 27, 21, 33, 25, 33, 27, 15, 23, 38, 29, 31, 43, 26],
+  "Daniel": [21, 49, 30, 37, 31, 28, 28, 27, 27, 21, 45, 13],
+  "Oséias": [11, 23, 5, 19, 15, 11, 16, 14, 17, 15, 12, 14, 16, 9],
+  "Joel": [20, 32, 21],
+  "Amós": [15, 16, 15, 13, 27, 14, 17, 14, 15],
+  "Obadias": [21],
+  "Jonas": [17, 10, 10, 11],
+  "Miquéias": [16, 13, 12, 13, 15, 16, 20],
+  "Naum": [15, 13, 19],
+  "Habacuque": [17, 20, 19],
+  "Sofonias": [18, 15, 20],
+  "Ageu": [15, 23],
+  "Zacarias": [21, 13, 10, 14, 11, 15, 14, 23, 17, 12, 17, 14, 9, 21],
+  "Malaquias": [14, 17, 18, 6],
+
+  // Novo Testamento
+  "Mateus": [25, 23, 17, 25, 48, 34, 29, 34, 38, 42, 30, 50, 58, 36, 39, 28, 27, 35, 30, 34, 46, 46, 39, 51],
+  "Marcos": [45, 28, 35, 41, 43, 56, 37, 38, 50, 52, 33, 44, 37, 72, 47, 20],
+  "Lucas": [80, 52, 38, 44, 39, 49, 50, 56, 62, 42, 54, 59, 35, 35, 32, 31, 37, 43, 48, 47, 38, 71, 56, 53],
+  "João": [51, 25, 36, 54, 47, 71, 53, 59, 41, 42, 57, 50, 38, 31, 27, 33, 26, 40, 42, 31, 25],
+  "Atos": [26, 47, 26, 37, 42, 15, 60, 40, 43, 48, 30, 25, 52, 28, 41, 40, 34, 28, 41, 38, 40, 30, 35, 27, 27, 32, 44, 31],
+  "Romanos": [32, 29, 31, 25, 21, 23, 25, 39, 33, 21, 36, 21, 14, 23, 33, 27],
+  "I Coríntios": [31, 16, 23, 21, 13, 20, 40, 13, 27, 33, 34, 31, 13, 40, 58, 24],
+  "II Coríntios": [24, 17, 18, 18, 21, 18, 16, 24, 15, 18, 33, 21, 14],
+  "Gálatas": [24, 21, 29, 31, 26, 18],
+  "Efésios": [23, 22, 21, 32, 33, 24],
+  "Filipenses": [30, 30, 21, 23],
+  "Colossenses": [29, 23, 25, 18],
+  "I Tessalonicenses": [10, 20, 13, 18, 28],
+  "II Tessalonicenses": [12, 17, 18],
+  "I Timóteo": [20, 15, 16, 16, 25, 21],
+  "II Timóteo": [18, 26, 17, 22],
+  "Tito": [16, 15, 15],
+  "Filemom": [25],
+  "Hebreus": [14, 18, 19, 16, 14, 20, 28, 13, 28, 39, 40, 29, 25],
+  "Tiago": [27, 26, 18, 17, 20],
+  "I Pedro": [25, 25, 22, 19, 14],
+  "II Pedro": [21, 22, 18],
+  "I João": [10, 29, 24, 21, 21],
+  "II João": [13],
+  "III João": [14],
+  "Judas": [25],
+  "Apocalipse": [20, 29, 22, 11, 14, 17, 17, 13, 21, 11, 19, 17, 18, 20, 8, 21, 18, 24, 21, 15, 27, 21]
 };
 
 document.getElementById("gerarPlano").addEventListener("click", () => {
-  const startInput = document.getElementById("startDate").value;
-  const endInput = document.getElementById("endDate").value;
+  const startDateValue = document.getElementById("startDate").value;
+  const endDateValue = document.getElementById("endDate").value;
+  const checkboxes = document.querySelectorAll(".checkbox-group input[type='checkbox']:checked");
 
-  function parseDateLocal(input) {
-    const [ano, mes, dia] = input.split("-").map(Number);
-    return new Date(ano, mes - 1, dia);
-  }
-
-  const startDate = parseDateLocal(startInput);
-  const endDate = parseDateLocal(endInput);
-
-  if (!startInput || !endInput || startDate > endDate) {
-    alert("Selecione datas válidas!");
+  if (!startDateValue || !endDateValue || checkboxes.length === 0) {
+    alert("Selecione as datas e ao menos um livro!");
     return;
   }
 
-  const selectedBooks = Array.from(document.querySelectorAll(".checkbox-group input:checked"))
-    .map(cb => cb.parentElement.textContent.trim());
+  const startDate = new Date(startDateValue + "T00:00"); 
+  const endDate = new Date(endDateValue + "T00:00");
 
-  if (selectedBooks.length === 0) {
-    alert("Selecione pelo menos um livro!");
-    return;
-  }
+  const dias = Math.ceil((endDate - startDate) / (1000 * 60 * 60 * 24)) + 1;
 
-  const totalDays = Math.ceil((endDate - startDate) / (1000 * 60 * 60 * 24)) + 1;
-  const totalCapitulos = selectedBooks.reduce((sum, livro) => sum + livrosCapitulos[livro], 0);
+  let capitulos = [];
+  checkboxes.forEach(checkbox => {
+    const livro = checkbox.parentElement.textContent.trim();
+    if (livrosCapitulosVersiculos[livro]) {
+      livrosCapitulosVersiculos[livro].forEach((versiculos, index) => {
+        capitulos.push({
+          livro,
+          capitulo: index + 1,
+          versiculos
+        });
+      });
+    }
+  });
 
-  const baseCapDia = Math.floor(totalCapitulos / totalDays);
-  let resto = totalCapitulos % totalDays;
+  const totalVersiculos = capitulos.reduce((acc, c) => acc + c.versiculos, 0);
+  const versiculosPorDia = Math.ceil(totalVersiculos / dias);
 
-  const plano = [];
-  let livroIndex = 0;
-  let capLivroAtual = 1;
-  let capLivroTotal = livrosCapitulos[selectedBooks[livroIndex]];
+  let plano = [];
+  let diaAtual = 0;
+  let versiculosDia = 0;
+  plano[diaAtual] = [];
 
-  for (let dia = 0; dia < totalDays; dia++) {
-    let capPorDia = baseCapDia;
-    if (resto > 0) { capPorDia++; resto--; }
-    plano[dia] = [];
+  capitulos.forEach(c => {
+    let inicioVersiculo = 1;
+    while (inicioVersiculo <= c.versiculos) {
+      const restoDia = versiculosPorDia - versiculosDia;
+      const fimVersiculo = Math.min(inicioVersiculo + restoDia - 1, c.versiculos);
 
-    while (capPorDia > 0 && livroIndex < selectedBooks.length) {
-      const livro = selectedBooks[livroIndex];
-      const capRestantesLivro = capLivroTotal - capLivroAtual + 1;
+      plano[diaAtual].push({
+        livro: c.livro,
+        capitulo: c.capitulo,
+        inicio: inicioVersiculo,
+        fim: fimVersiculo
+      });
 
-      if (capPorDia >= capRestantesLivro) {
-        plano[dia].push(`${livro} ${capLivroAtual}-${capLivroTotal}`);
-        capPorDia -= capRestantesLivro;
-        livroIndex++;
-        if (livroIndex < selectedBooks.length) {
-          capLivroAtual = 1;
-          capLivroTotal = livrosCapitulos[selectedBooks[livroIndex]];
-        }
-      } else {
-        const capFinal = capLivroAtual + capPorDia - 1;
-        plano[dia].push(`${livro} ${capLivroAtual}-${capFinal}`);
-        capLivroAtual = capFinal + 1;
-        capPorDia = 0;
+      versiculosDia += (fimVersiculo - inicioVersiculo + 1);
+      inicioVersiculo = fimVersiculo + 1;
+
+      if (versiculosDia >= versiculosPorDia) {
+        diaAtual++;
+        plano[diaAtual] = [];
+        versiculosDia = 0;
       }
     }
-  }
+  });
 
   let tabelaHTML = `
     <h2>PLANO DE ESTUDOS</h2>
     <table border="1" cellpadding="5">
       <thead>
-        <tr><th>Dia</th><th>Leitura</th></tr>
+        <tr><th>Data</th><th>Leitura</th></tr>
       </thead>
       <tbody>
   `;
 
-  plano.forEach((dia, index) => {
-    const data = new Date(startDate);
-    data.setDate(data.getDate() + index);
-    tabelaHTML += `
-      <tr>
-        <td>${data.toLocaleDateString()}</td>
-        <td>${dia.join(", ")}</td>
-      </tr>
-    `;
+  plano.forEach((dia, i) => {
+    if (!dia) return; 
+    let data = new Date(startDate);
+    data.setDate(startDate.getDate() + i);
+
+    let leitura = dia.map(c =>
+      c.inicio === c.fim ? `${c.livro} ${c.capitulo}:${c.inicio}` : `${c.livro} ${c.capitulo}:${c.inicio}-${c.fim}`
+    ).join(", ");
+
+    tabelaHTML += `<tr><td>${data.toLocaleDateString("pt-BR")}</td><td>${leitura}</td></tr>`;
   });
 
   tabelaHTML += "</tbody></table>";
-
   document.getElementById("tabela-container").innerHTML = tabelaHTML;
 
   document.getElementById("exportar").disabled = false;

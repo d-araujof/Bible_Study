@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bible Study - Home</title>
+    <link rel="stylesheet" href="/style/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="/img/livros.png" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">Bible Study</div>
+      <nav>
+        <a href="/index.html">HOME</a>
+        <a href="pages/temas.html" class="ativo">TEMAS</a>
+      </nav>
+    </header>
+
+    <main>
+      <h1>Planos temáticos</h1>
+
+      <div class="selecione-datas">
+        <h2>SELECIONE SUAS DATAS</h2>
+        <div class="datas">
+          <input type="date" id="startDate" placeholder="Data de início" />
+          <input type="date" id="endDate" placeholder="Data de fim" />
+        </div>
+      </div>
+
+      <div class="selecione-livros">
+        <h2>TEMAS ESPRITUAIS</h2>
+        <div class="checkbox-group">
+          <label><input type="checkbox" />Amor</label>
+          <label><input type="checkbox" />Perseverança</label>
+          <label><input type="checkbox" />Perdão</label>
+          <label><input type="checkbox" />Obediência</label>
+          <label><input type="checkbox" />Gratidão</label>
+          <label><input type="checkbox" />Oração</label>
+        </div>
+      </div>
+
+      <div class="selecione-livros">
+        <h2>PERSONAGENS BÍBLICOS</h2>
+        <div class="checkbox-group">
+          <label><input type="checkbox" />Davi</label>
+          <label><input type="checkbox" />Moisés</label>
+          <label><input type="checkbox" />Paulo</label>
+          <label><input type="checkbox" />Ester</label>
+          <label><input type="checkbox" />Daniel</label>
+          <label><input type="checkbox" />Josué</label>
+          <label><input type="checkbox" />Rute</label>
+        </div>
+      </div>
+
+      <div class="selecione-livros">
+        <h2>GÊNEROS BÍBLICOS</h2>
+        <div class="checkbox-group">
+          <label><input type="checkbox" />Pentateuco</label>
+          <label><input type="checkbox" />Históricos</label>
+          <label><input type="checkbox" />Poéticos</label>
+          <label><input type="checkbox" />Profetas</label>
+          <label><input type="checkbox" />Evangelhos</label>
+        </div>
+      </div>
+
+      <div class="selecione-livros">
+        <h2>PRÁTICAS CRISTÃ</h2>
+        <div class="checkbox-group">
+          <label><input type="checkbox" />Família</label>
+          <label><input type="checkbox" />Relacionamentos</label>
+          <label><input type="checkbox" />Resiliência</label>
+        </div>
+      </div>
+
+      <div class="botao">
+        <button id="gerarPlanoTema">GERAR PLANO</button>
+        <button id="exportar" disabled>EXPORTAR PDF</button>
+      </div>
+
+      <div id="tabela-container"></div>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Bible Study</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+
+    <script src="/src/temas.js"></script>
+    <script src="/src/button.js"></script>
+  </body>
+</html>
